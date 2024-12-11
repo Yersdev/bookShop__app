@@ -22,7 +22,7 @@ function Header({ isAuthenticated }) {
         <Link to="/books">Books</Link>
         <Link to="/wishlist">WishList</Link>
         <Link to="/cart">Корзина</Link>
-        <Link to="/orders">My Orders</Link>
+        <Link to="/order">My Orders</Link>
       </nav>
       <div className="auth">
         {isAuthenticated ? (

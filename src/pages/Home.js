@@ -3,8 +3,18 @@ import { Link } from "react-router-dom";
 import BookList from "../components/BookList";
 import "../styles/Home.css";
 import "../styles/footer.css"
+import { useDispatch } from "react-redux";
+import { addToWishlist } from "../store/slices/wishlistSlice";
+
+
+
 
 function Home() {
+  const dispatch = useDispatch(); // Теперь внутри компонента Home
+
+  const handleAddToWishlist = (book) => {
+    dispatch(addToWishlist(book)); // Отправляем действие
+  };
   const [currentPage, setCurrentPage] = useState(0); // Для отслеживания текущей страницы
   const [selectedGenre, setSelectedGenre] = useState("Все"); // Для фильтрации по жанру
 
@@ -74,32 +84,31 @@ function Home() {
       </section>
 
       <section className="hot-books">
-        <div className="hot-books__genre">
-          <h2>Горячие поступления</h2>
-          <div className="genre-filter">
-            {genres.map((genre) => (
-              <button
-                key={genre}
-                onClick={() => handleGenreChange(genre)}
-                className={`genre-button ${selectedGenre === genre ? "active" : ""}`}
-              >
-                {genre}
-              </button>
-            ))}
-          </div>
+      <div className="hot-books__genre">
+        <h2>Горячие поступления</h2>
+        <div className="genre-filter">
+          {genres.map((genre) => (
+            <button
+              key={genre}
+              onClick={() => handleGenreChange(genre)}
+              className={`genre-button ${selectedGenre === genre ? "active" : ""}`}
+            >
+              {genre}
+            </button>
+          ))}
         </div>
+      </div>
 
-        <div className="hot-books__list">
-          <button onClick={handlePrev} disabled={currentPage === 0} className="scroll-btn">
-            ←
-          </button>
-          <BookList books={paginatedBooks} />
-          <button onClick={handleNext} disabled={currentPage === totalPages - 1} className="scroll-btn">
-            →
-          </button>
-        </div>
-      </section>
-
+      <div className="hot-books__list">
+        <button onClick={handlePrev} disabled={currentPage === 0} className="scroll-btn">
+          ←
+        </button>
+        <BookList books={paginatedBooks} />
+        <button onClick={handleNext} disabled={currentPage === totalPages - 1} className="scroll-btn">
+          →
+        </button>
+      </div>
+    </section>
       <section className="hot-books">
   <div className="hot-books__genre">
     <h2>Распродажа</h2>

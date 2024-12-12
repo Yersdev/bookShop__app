@@ -121,6 +121,11 @@
     border-radius: 5px;
     cursor: pointer;
   }
+  .order-info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
   
   .order-summary button:hover {
     background-color: #754c26;
@@ -128,9 +133,10 @@
   
   .order-details {
     padding: 20px;
-    border: 1px solid #ddd;
     background-color: #f9f9f9;
+    border: 1px solid rgba(90, 39, 39, 0.5);
   }
+  
   
   .order-details h3 {
     margin-top: 10px;
@@ -172,7 +178,7 @@
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: #e66767;
   padding: 20px;
   border-radius: 5px;
   width: 90%;
@@ -196,6 +202,9 @@
 
 /* Стили для списка книг */
 .books-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -204,12 +213,10 @@
 .book-item {
   display: flex;
   align-items: center;
-  margin-bottom: 15px;
 }
 
 .book-image {
-  width: 50px;
-  height: 75px;
+  height: 125px;
   object-fit: cover;
   margin-right: 15px;
   border: 1px solid #ccc;
@@ -219,6 +226,7 @@
 .book-details {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
 .book-title {

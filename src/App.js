@@ -7,6 +7,7 @@ import Cart from "./pages/Cart";
 import Wishlist from "./pages/Wishlist";
 import MyOrders from "./pages/MyOrders";
 import Profile from "./pages/Profile";
+import OrderDetails from "./pages/OrderDetails"; // Импортируем новую страницу
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/order" element={<MyOrders />} />
+        <Route path="/order/:orderId" element={<OrderDetails />} /> {/* Новый маршрут */}
         <Route path="/profile" element={<Profile />} />
       </Routes>
     </div>
